@@ -18,7 +18,8 @@ import {
   Page
 } from '@blinkdotnew/ui';
 import { cn } from '@/lib/utils';
-import { useLocation, Link, Outlet } from 'react-router-dom';
+import { useLocation, Link, Outlet, useNavigate } from 'react-router-dom';
+import { ChevronLeft } from 'lucide-react';
 
 const navItems = [
   { id: 'overview', label: 'Dashboard', icon: <LayoutDashboard className="h-4 w-4" />, href: '/research' },
@@ -31,16 +32,28 @@ const navItems = [
 
 export default function ResearchLabLayout() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <AppShell>
       <AppShellSidebar className="shrink-0">
         <div className="flex flex-col h-full w-[16rem] bg-background/80 backdrop-blur-xl border-r border-border research-scanline">
-          <div className="shrink-0 border-b border-border px-6 py-6 flex items-center gap-3">
-            <div className="h-8 w-8 rounded bg-primary/20 flex items-center justify-center border border-primary/50 glow-border">
-              <FlaskConical className="h-5 w-5 text-primary glow-text" />
+          <div className="shrink-0 border-b border-border px-6 py-6 flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <div className="h-8 w-8 rounded bg-primary/20 flex items-center justify-center border border-primary/50 glow-border">
+                <FlaskConical className="h-5 w-5 text-primary glow-text" />
+              </div>
+              <span className="font-bold text-lg tracking-tight glow-text">NEURAL LAB</span>
             </div>
-            <span className="font-bold text-lg tracking-tight glow-text">NEURAL LAB</span>
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={() => navigate('/')}
+              className="w-full justify-start gap-2 h-8 px-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:text-foreground"
+            >
+              <ChevronLeft size={12} />
+              Return to Core
+            </Button>
           </div>
 
           <div className="flex-1 min-h-0 overflow-y-auto px-3 py-4 space-y-1">

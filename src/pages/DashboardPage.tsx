@@ -20,7 +20,7 @@ export function DashboardPage() {
       
       <div className="blueprint-grid" />
       
-      <div className="container mx-auto px-4 space-y-24 relative z-10">
+      <div className="container max-w-[1400px] mx-auto px-4 space-y-24 relative z-10">
         {/* Generator Section */}
         <section className="space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-6">
